@@ -94,7 +94,7 @@
             box-shadow: 0 0 2px 1px rgba(0, 127, 255, 0.5);
         }
 
-        button {
+        a {
             padding: 2px 40rem 2px 40rem;
             width: 630px;
         }
@@ -197,8 +197,8 @@
                     <hr>
                 </div>
 
-                <button class="btn btn-xl btn-primary">UPDATE</button>
-                <button class="btn btn-xl btn-danger">DELETE</button>
+                <a href="edit.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary">UPDATE</a>
+                <a href="hapus.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-danger">DELETE</a>
 
 
 
