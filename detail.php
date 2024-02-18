@@ -30,23 +30,26 @@
         }
 
         .mybca {
+            position: relative;
             width: 53rem;
             margin: 100px 0px 50px 2rem;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 4px;
-            position: absolute;
-            display: inline-block;
             border-top: 5px solid #0ab2fa;
 
         }
 
+        .container-side{
+            position: absolute;
+            display: inline-block;
+        }
+
         .image {
-            position: relative;
             display: inline-block;
             width: 25.3rem;
-            margin: 100px 0px 50px 2rem;
+            margin: 10px 0px 50px 2rem;
             background-color: #fff;
             border-radius: 4px;
             border-top: 5px solid #0ab2fa;
@@ -65,8 +68,8 @@
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 30px;
+            text-align: left;
+            margin: 20px 0px 0px 2rem;
         }
 
         .form-group {
@@ -94,15 +97,24 @@
             box-shadow: 0 0 2px 1px rgba(0, 127, 255, 0.5);
         }
 
-        a {
+        .a {
             padding: 2px 40rem 2px 40rem;
             width: 630px;
+        }
+
+        .btn-wrapper{
+            position: absolute;
+            margin: 10px 0px 0px 2rem;
         }
     </style>
 </head>
 
 <body>
     <h1>Detail Rekening</h1>
+    <div class="btn-wrapper">
+        <a href="index.php" class="btn btn-primary">Kembali</a>
+        <button class="btn btn-success">Print</button>
+    </div>
     <div class="container">
 
         <?php
@@ -197,8 +209,8 @@
                     <hr>
                 </div>
 
-                <a href="edit.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary">UPDATE</a>
-                <a href="hapus.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-danger">DELETE</a>
+                <a href="edit.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary update">UPDATE</a>
+                <a href="hapus.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-danger delete">DELETE</a>
 
 
 
@@ -206,60 +218,87 @@
             </form>
     </div>
 
-    <div class="mybca">
-        <center>
-            <h3>MYBCA</h3>
-        </center>
-        <div class="wrapper">
-            <hr>
-            <h5>User MYBCA <span class="cabang-wrapper"><?= $d['user_my_bca']; ?></span></h5>
-            <hr>
-        </div>
-        <div class="wrapper">
-            <h5>Password MYBCA <span class="cabang-wrapper"><?= $d['password_my_bca']; ?></span></h5>
-            <hr>
-        </div>
-        <div class="wrapper">
-            <h5>Pin Transaksi <span class="cabang-wrapper"><?= $d['pin_transaksi']; ?></span></h5>
-            <hr>
-        </div>
-        <div class="wrapper">
-            <h5>Keterangan <span class="cabang-wrapper"><?= $d['keterangan']; ?></span></h5>
-            <hr>
-        </div>
-        <div class="wrapper">
-            <h5>Tanggal Mulai <span class="cabang-wrapper"><?= $d['tanggal_mulai']; ?></span></h5>
-            <hr>
-        </div>
-        <div class="wrapper">
-            <h5>Tanggal Akhir <span class="cabang-wrapper"><?= $d['tanggal_akhir']; ?></span></h5>
-            <hr>
-        </div>
-    </div>
-
-    <div class="image">
-        <div class="ktp">
+    <div class="container-side">
+        <div class="mybca">
             <center>
-                <h3 style="margin-top: 2rem;">Foto KTP</h3>
-                <hr>
-                <img src="gambar/<?= $d['foto_ktp']; ?>" alt="" width="170rem" height="90rem">
-                <hr>
+                <h3>MYBCA</h3>
             </center>
+            <div class="wrapper">
+                <hr>
+                <h5>User MYBCA <span class="cabang-wrapper"><?= $d['user_my_bca']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Password MYBCA <span class="cabang-wrapper"><?= $d['password_my_bca']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Pin Transaksi <span class="cabang-wrapper"><?= $d['pin_transaksi']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Keterangan <span class="cabang-wrapper"><?= $d['keterangan']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Tanggal Mulai <span class="cabang-wrapper"><?= $d['tanggal_mulai']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Tanggal Akhir <span class="cabang-wrapper"><?= $d['tanggal_akhir']; ?></span></h5>
+                <hr>
+            </div>
+        </div>
 
+        <div class="image">
+            <div class="ktp">
+                <center>
+                    <h3 style="margin-top: 2rem;">Foto KTP</h3>
+                    <hr>
+                    <img src="gambar/<?= $d['foto_ktp']; ?>" alt="" width="170rem" height="90rem">
+                    <hr>
+                </center>
+
+            </div>
+        </div>
+
+        <div class="image">
+            <div class="atm">
+                <center>
+                    <h3 style="margin-top: 2rem;">Foto Kartu ATM</h3>
+                    <hr>
+                    <img src="gambar/<?= $d['foto_kartu_atm']; ?>" alt="" width="170rem" height="90rem">
+                    <hr>
+                </center>
+
+            </div>
+        </div>
+
+        <div class="image">
+            <div class="atm">
+                <center>
+                    <h3 style="margin-top: 2rem;">Foto KK</h3>
+                    <hr>
+                    <img src="gambar/<?= $d['foto_kk']; ?>" alt="" width="170rem" height="90rem">
+                    <hr>
+                </center>
+
+            </div>
+        </div>
+        
+        <div class="image">
+            <div class="atm">
+                <center>
+                    <h3 style="margin-top: 2rem;">Foto Buku Tabungan</h3>
+                    <hr>
+                    <img src="gambar/<?= $d['foto_buku_tabungan']; ?>" alt="" width="170rem" height="90rem">
+                    <hr>
+                </center>
+
+            </div>
         </div>
     </div>
 
-    <div class="image">
-        <div class="atm">
-            <center>
-                <h3 style="margin-top: 2rem;">Foto Kartu ATM</h3>
-                <hr>
-                <img src="gambar/<?= $d['foto_kartu_atm']; ?>" alt="" width="170rem" height="90rem">
-                <hr>
-            </center>
-
-        </div>
-    </div>
 
 <?php
 

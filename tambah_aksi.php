@@ -55,9 +55,9 @@ if ($_FILES['foto']['error'] === UPLOAD_ERR_OK) {
     $foto_buku_tabungan = $rand . '_buku_tabungan.' . $ext;
 
     move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $foto_ktp);
-    move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $foto_kartu_atm);
-    move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $foto_kk);
-    move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $foto_buku_tabungan);
+    move_uploaded_file($_FILES['foto_kartu_atm']['tmp_name'], 'gambar/' . $foto_kartu_atm);
+    move_uploaded_file($_FILES['foto_kk']['tmp_name'], 'gambar/' . $foto_kk);
+    move_uploaded_file($_FILES['foto_buku_tabungan']['tmp_name'], 'gambar/' . $foto_buku_tabungan);
 } else {
     // Jika tidak ada file gambar yang diunggah, atur nama gambar menjadi NULL
     $foto_ktp = NULL;

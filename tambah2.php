@@ -187,21 +187,21 @@
                     <label for="foto_kartu_atm" class="formbold-form-label">
                         Foto Kartu ATM
                     </label>
-                    <input type="file" class="form-control" id="customFile" name="foto" />
+                    <input type="file" class="form-control" id="customFile" name="foto_kartu_atm" />
                 </div>
 
                 <div class="formbold-mb-3">
                     <label for="foto_kk" class="formbold-form-label">
                         Foto KK
                     </label>
-                    <input type="file" class="form-control" id="customFile" name="foto"/>
+                    <input type="file" class="form-control" id="customFile" name="foto_kk"/>
                 </div>
 
                 <div class="formbold-mb-3">
                     <label for="foto_buku_tabungan" class="formbold-form-label">
                         Foto Buku Tabungan
                     </label>
-                    <input type="file" class="form-control" id="customFile" name="foto"/>
+                    <input type="file" class="form-control" id="customFile" name="foto_buku_tabungan"/>
                 </div>
 
                 <div class="formbold-checkbox-wrapper">
