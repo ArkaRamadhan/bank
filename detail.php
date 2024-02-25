@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Banking Form</title>
     <style>
@@ -20,6 +21,7 @@
         .container {
             margin: 100px 0px 50px 2rem;
             width: 100rem;
+            height: 80rem;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ccc;
@@ -32,7 +34,7 @@
         .mybca {
             position: relative;
             width: 53rem;
-            margin: 100px 0px 50px 2rem;
+            margin: 100px 0px 20px 2rem;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ccc;
@@ -41,7 +43,19 @@
 
         }
 
-        .container-side{
+        .coorporate {
+            position: relative;
+            width: 53rem;
+            margin: 10px 0px 15px 2rem;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            border-top: 5px solid #0ab2fa;
+
+        }
+
+        .container-side {
             position: absolute;
             display: inline-block;
         }
@@ -49,6 +63,7 @@
         .image {
             display: inline-block;
             width: 25.3rem;
+            height: 16rem;
             margin: 10px 0px 50px 2rem;
             background-color: #fff;
             border-radius: 4px;
@@ -102,9 +117,17 @@
             width: 630px;
         }
 
-        .btn-wrapper{
+        .btn-wrapper {
             position: absolute;
             margin: 10px 0px 0px 2rem;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
         }
     </style>
 </head>
@@ -209,9 +232,48 @@
                     <hr>
                 </div>
 
-                <a href="edit.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary update">UPDATE</a>
-                <a href="hapus.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-danger delete">DELETE</a>
+                <a href="edit.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary update" style="margin-top: 5rem; width:50%;">UPDATE</a>
 
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" onclick="openModal()" style="margin-top: 5rem; width:49%;">
+                    DELETE
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">CONFIRM DELETE</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Apakah anda yakin?
+                            </div>
+                            <div class="confirm-delete hide">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmed</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <p>Delete Successful!!</p>
+                                <div class="modal-footer1">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <!-- <button class="btn btn-danger" onclick="confirmDelete()">Delete</button> -->
+                                <a href="hapus.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-danger">Delete</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
 
                 <!-- Add more form fields here, based on the provided image -->
@@ -250,24 +312,32 @@
             </div>
         </div>
 
+        <div class="coorporate">
+            <div class="wrapper">
+                <hr>
+                <h5>Bisnis <span class="cabang-wrapper"><?= $d['bisnis']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Coorporate_id <span class="cabang-wrapper"><?= $d['coorporate_id']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>Coorporate <span class="cabang-wrapper"><?= $d['coorporate']; ?></span></h5>
+                <hr>
+            </div>
+            <div class="wrapper">
+                <h5>ID <span class="cabang-wrapper"><?= $d['id']; ?></span></h5>
+                <hr>
+            </div>
+        </div>
+
         <div class="image">
             <div class="ktp">
                 <center>
-                    <h3 style="margin-top: 2rem;">Foto KTP</h3>
+                    <h3 style="margin-top: 1rem;">Foto KTP</h3>
                     <hr>
-                    <img src="gambar/<?= $d['foto_ktp']; ?>" alt="" width="170rem" height="90rem">
-                    <hr>
-                </center>
-
-            </div>
-        </div>
-
-        <div class="image">
-            <div class="atm">
-                <center>
-                    <h3 style="margin-top: 2rem;">Foto Kartu ATM</h3>
-                    <hr>
-                    <img src="gambar/<?= $d['foto_kartu_atm']; ?>" alt="" width="170rem" height="90rem">
+                    <img src="gambar/<?= $d['foto_ktp']; ?>" alt="Gambar tidak tersedia" width="350rem" height="180rem">
                     <hr>
                 </center>
 
@@ -277,21 +347,33 @@
         <div class="image">
             <div class="atm">
                 <center>
-                    <h3 style="margin-top: 2rem;">Foto KK</h3>
+                    <h3 style="margin-top: 1rem;">Foto Kartu ATM</h3>
                     <hr>
-                    <img src="gambar/<?= $d['foto_kk']; ?>" alt="" width="170rem" height="90rem">
+                    <img src="gambar/<?= $d['foto_kartu_atm']; ?>" alt="Gambar tidak tersedia" width="350rem" height="180rem">
                     <hr>
                 </center>
 
             </div>
         </div>
-        
+
         <div class="image">
             <div class="atm">
                 <center>
-                    <h3 style="margin-top: 2rem;">Foto Buku Tabungan</h3>
+                    <h3 style="margin-top: 1rem;">Foto KK</h3>
                     <hr>
-                    <img src="gambar/<?= $d['foto_buku_tabungan']; ?>" alt="" width="170rem" height="90rem">
+                    <img src="gambar/<?= $d['foto_kk']; ?>" alt="Gambar tidak tersedia" width="350rem" height="180rem">
+                    <hr>
+                </center>
+
+            </div>
+        </div>
+
+        <div class="image">
+            <div class="atm">
+                <center>
+                    <h3 style="margin-top: 1rem;">Foto Buku Tabungan</h3>
+                    <hr>
+                    <img src="gambar/<?= $d['foto_buku_tabungan']; ?>" alt="Gambar tidak tersedia" width="350rem" height="180rem">
                     <hr>
                 </center>
 
@@ -304,6 +386,23 @@
 
         }
 ?>
+
+<script>
+    function confirmDelete() {
+        console.log("Deleting...");
+        $('.modal-header, .modal-footer, .modal-body').addClass('hide');
+        $('.confirm-delete').removeClass('hide');
+        //$('#myModal').modal('hide');
+    }
+
+    function openModal() {
+        $('.confirm-delete').addClass('hide');
+        $('#myModal .modal-header, .modal-footer, .modal-body').removeClass('hide');
+        $('#myModal').modal('show');
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 
 </html>

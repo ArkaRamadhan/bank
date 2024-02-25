@@ -25,11 +25,12 @@
 			$nomor = 1;
 			while ($d = mysqli_fetch_array($data)) {
 			?>
-				<form method="POST" action="update.php" enctype="multipart/form-data">
+				<form method="POST" action="update.php?id_ib=<?php echo $d['id_ib']; ?>" enctype="multipart/form-data">
 					<div class="formbold-form-title">
 						<h2 class="">DATA REKENING</h2>
 					</div>
-		
+					<input type="hidden" name="id_ib" value="<?php echo $d['id_ib'] ?>">
+
 					<div class="formbold-input-flex">
 						<div>
 							<label for="nama" class="formbold-form-label">
@@ -39,7 +40,7 @@
 						</div>
 						<div>
 							<label for="bank" class="formbold-form-label"> Bank </label>
-							<input type="text" name="bank" id="bank" class="formbold-form-input" value="<?= $d['bank']; ?>"/>
+							<input type="text" name="bank" id="bank" class="formbold-form-input" value="<?= $d['bank']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
@@ -47,122 +48,128 @@
 							<label for="status" class="formbold-form-label">
 								Status
 							</label>
-							<input type="text" name="status" id="status" class="formbold-form-input" value="<?= $d['status']; ?>"/>
+							<select class="formbold-form-input" aria-label="Default select example" name="status" id="status">
+								<option value="" disabled selected>Status</option>
+								<option value="Active" <?= $d['status'] === 'Active' ? 'selected' : ''; ?>>Active</option>
+								<option value="Blockir" <?= $d['status'] === 'Blockir' ? 'selected' : ''; ?>>Blockir</option>
+								<option value="Stock" <?= $d['status'] === 'Stock' ? 'selected' : ''; ?>>Stock</option>
+								<option value="Closed" <?= $d['status'] === 'Closed' ? 'selected' : ''; ?>>Closed</option>
+							</select>
 						</div>
 						<div>
 							<label for="batch" class="formbold-form-label"> Batch </label>
-							<input type="text" name="batch" id="batch" class="formbold-form-input" value="<?= $d['batch']; ?>"/>
+							<input type="text" name="batch" id="batch" class="formbold-form-input" value="<?= $d['batch']; ?>" />
 						</div>
 					</div>
 
 					<div class="formbold-input-flex">
 						<div>
 							<label for="cabang" class="formbold-form-label"> Cabang </label>
-							<input type="text" name="cabang" id="cabang" class="formbold-form-input" value="<?= $d['cabang']; ?>"/>
+							<input type="text" name="cabang" id="cabang" class="formbold-form-input" value="<?= $d['cabang']; ?>" />
 						</div>
 						<div>
 							<label for="no_rekening" class="formbold-form-label"> No Rekening </label>
-							<input type="text" name="no_rek"  id="no_rekening" class="formbold-form-input" value="<?= $d['no_rekening'];?>"/>
+							<input type="text" name="no_rek" id="no_rekening" class="formbold-form-input" value="<?= $d['no_rekening']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
 						<div>
 							<label for="nama_ibu" class="formbold-form-label"> Nama Ibu </label>
-							<input type="text" name="nama_ibu" id="nama_ibu" class="formbold-form-input" value="<?= $d['nama_ibu']; ?>"/>
+							<input type="text" name="nama_ibu" id="nama_ibu" class="formbold-form-input" value="<?= $d['nama_ibu']; ?>" />
 						</div>
 						<div>
 							<label for="no_hp" class="formbold-form-label"> No Hp </label>
-							<input type="text" name="no_hp" id="no_hp" class="formbold-form-input" value="<?= $d['no_hp']; ?>"/>
+							<input type="text" name="no_hp" id="no_hp" class="formbold-form-input" value="<?= $d['no_hp']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
 						<div>
 							<label for="email" class="formbold-form-label"> Email </label>
-							<input type="email" name="email" id="email" class="formbold-form-input" value="<?= $d['email']; ?>"/>
+							<input type="email" name="email" id="email" class="formbold-form-input" value="<?= $d['email']; ?>" />
 						</div>
 						<div>
 							<label for="password" class="formbold-form-label"> Password </label>
-							<input type="password" name="password" id="password" class="formbold-form-input" value="<?= $d['password']; ?>"/>
+							<input type="password" name="password" id="password" class="formbold-form-input" value="<?= $d['password']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
 						<div>
 							<label for="user_ib" class="formbold-form-label"> User Internet Banking </label>
-							<input type="text" name="user_ib" id="user_ib" class="formbold-form-input" value="<?= $d['user_ib']; ?>"/>
+							<input type="text" name="user_ib" id="user_ib" class="formbold-form-input" value="<?= $d['user_ib']; ?>" />
 						</div>
 						<div>
 							<label for="pin_ib" class="formbold-form-label"> Pin Internet Banking </label>
-							<input type="password" name="pin_ib" id="pin_ib" class="formbold-form-input" value="<?= $d['pin_ib']; ?>"/>
+							<input type="password" name="pin_ib" id="pin_ib" class="formbold-form-input" value="<?= $d['pin_ib']; ?>" />
 						</div>
 					</div>
 
 					<div class="formbold-input-flex">
 						<div>
 							<label for="kode_akses" class="formbold-form-label"> Kode Akses Mobile Banking </label>
-							<input type="text" name="kode_akses" id="kode_akses" class="formbold-form-input" value="<?= $d['kode_akses']; ?>"/>
+							<input type="text" name="kode_akses" id="kode_akses" class="formbold-form-input" value="<?= $d['kode_akses']; ?>" />
 						</div>
 						<div>
 							<label for="password_transaksi" class="formbold-form-label"> Password Transaksi </label>
-							<input type="password" name="password_transaksi" id="password_transaksi" class="formbold-form-input" value="<?= $d['password_transaksi']; ?>"/>
+							<input type="password" name="password_transaksi" id="password_transaksi" class="formbold-form-input" value="<?= $d['password_transaksi']; ?>" />
 						</div>
 					</div>
 
 					<div class="formbold-input-flex">
 						<div>
 							<label for="pin_mb" class="formbold-form-label"> Pin Mobile Banking </label>
-							<input type="password" name="pin_mb" id="pin_mb" class="formbold-form-input" value="<?= $d['pin_mb']; ?>"/>
+							<input type="password" name="pin_mb" id="pin_mb" class="formbold-form-input" value="<?= $d['pin_mb']; ?>" />
 						</div>
 						<div>
 							<label for="pin_atm" class="formbold-form-label"> Pin ATM </label>
-							<input type="password" name="pin_atm" id="pin_atm" class="formbold-form-input" value="<?= $d['pin_atm']; ?>"/>
+							<input type="password" name="pin_atm" id="pin_atm" class="formbold-form-input" value="<?= $d['pin_atm']; ?>" />
 						</div>
 					</div>
 
 					<div class="formbold-input-flex">
 						<div>
 							<label for="serial_key_number" class="formbold-form-label"> Serial Key Number </label>
-							<input type="text" name="serial_key_number" id="serial_key_number" class="formbold-form-input" value="<?= $d['serial_key_number']; ?>"/>
+							<input type="text" name="serial_key_number" id="serial_key_number" class="formbold-form-input" value="<?= $d['serial_key_number']; ?>" />
 						</div>
 						<div>
 							<label for="pin_skn" class="formbold-form-label"> Pin Serial Key Number </label>
-							<input type="password" name="pin_skn" id="pin_skn" class="formbold-form-input" value="<?= $d['pin_skn']; ?>"/>
+							<input type="password" name="pin_skn" id="pin_skn" class="formbold-form-input" value="<?= $d['pin_skn']; ?>" />
 						</div>
 					</div>
 
 					<div class="formbold-input-flex">
 						<div>
 							<label for="jenis_atm" class="formbold-form-label"> Jenis ATM </label>
-							<input type="text" name="jenis_atm" id="jenis_atm" class="formbold-form-input" value="<?= $d['jenis_atm']; ?>"/>
+							<input type="text" name="jenis_atm" id="jenis_atm" class="formbold-form-input" value="<?= $d['jenis_atm']; ?>" />
 						</div>
 						<div>
 							<label for="no_kartu_atm" class="formbold-form-label"> No Kartu ATM </label>
-							<input type="text" name="no_kartu_atm" id="no_kartu_atm" class="formbold-form-input" value="<?= $d['no_kartu_atm']; ?>"/>
+							<input type="text" name="no_kartu_atm" id="no_kartu_atm" class="formbold-form-input" value="<?= $d['no_kartu_atm']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
 						<div>
 							<label for="cvv" class="formbold-form-label"> CVV </label>
-							<input type="text" name="cvv" id="cvv" class="formbold-form-input" value="<?= $d['cvv']; ?>"/>
+							<input type="text" name="cvv" id="cvv" class="formbold-form-input" value="<?= $d['cvv']; ?>" />
 						</div>
 						<div>
 							<label for="valid_simcard" class="formbold-form-label"> Valid SIM CARD </label>
-							<input type="date" name="valid_simcard" id="valid_simcard" class="formbold-form-input" value="<?= $d['valid_simcard']; ?>"/>
+							<input type="date" name="valid_simcard" id="valid_simcard" class="formbold-form-input" value="<?= $d['valid_simcard']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
 						<div>
 							<label for="user_my_bca" class="formbold-form-label"> User My BCA </label>
-							<input type="text" name="user_my_bca" id="user_my_bca" class="formbold-form-input" value="<?= $d['user_my_bca']; ?>"/>
+							<input type="text" name="user_my_bca" id="user_my_bca" class="formbold-form-input" value="<?= $d['user_my_bca']; ?>" />
 						</div>
 						<div>
 							<label for="password_my_bca" class="formbold-form-label"> Password My BCA </label>
-							<input type="password" name="password_my_bca" id="password_my_bca" class="formbold-form-input"value="<?= $d['password_my_bca']; ?>" />
+							<input type="password" name="password_my_bca" id="password_my_bca" class="formbold-form-input" value="<?= $d['password_my_bca']; ?>" />
 						</div>
 					</div>
 					<div class="formbold-input-flex">
 						<div>
 							<label for="pin_transaksi" class="formbold-form-label"> Pin Transaksi </label>
-							<input type="password" name="pin_transaksi" id="pin_transaksi" class="formbold-form-input" value="<?= $d['pin_transaksi']; ?>"/>
+							<input type="password" name="pin_transaksi" id="pin_transaksi" class="formbold-form-input" value="<?= $d['pin_transaksi']; ?>" />
 						</div>
 						<div>
 							<label for="keterangan" class="formbold-form-label"> Keterangan </label>
@@ -172,11 +179,11 @@
 					<div class="formbold-input-flex">
 						<div>
 							<label for="tanggal_mulai" class="formbold-form-label"> Tanggal Mulai </label>
-							<input type="date" name="tanggal_mulai" id="tanggal_mulai" class="formbold-form-input" value="<?= $d['tanggal_mulai']; ?>"/>
+							<input type="date" name="tanggal_mulai" id="tanggal_mulai" class="formbold-form-input" value="<?= $d['tanggal_mulai']; ?>" />
 						</div>
 						<div>
 							<label for="tanggal_akhir" class="formbold-form-label"> Tanggal Akhir </label>
-							<input type="date" name="tanggal_akhir" id="tanggal_akhir" class="formbold-form-input" value="<?= $d['tanggal_akhir']; ?>"/>
+							<input type="date" name="tanggal_akhir" id="tanggal_akhir" class="formbold-form-input" value="<?= $d['tanggal_akhir']; ?>" />
 						</div>
 					</div>
 
@@ -184,37 +191,37 @@
 						<label for="masa_berlaku_atm" class="formbold-form-label">
 							Masa Berlaku ATM
 						</label>
-						<input type="date" name="masa_berlaku_atm" id="masa_berlaku_atm" class="formbold-form-input" value="<?= $d['masa_berlaku_atm']; ?>"/>
+						<input type="date" name="masa_berlaku_atm" id="masa_berlaku_atm" class="formbold-form-input" value="<?= $d['masa_berlaku_atm']; ?>" />
 					</div>
 
 					<div class="formbold-mb-3">
 						<label for="foto_ktp" class="formbold-form-label">
 							Foto KTP
 						</label>
-						<input type="file" class="form-control" name="foto" id="customFile" value="<?= $d['foto_ktp']; ?>"/>
+						<input type="file" class="form-control" name="foto" id="customFile" value="gambar/<?= $d['foto_ktp']; ?>" />
 					</div>
 
 					<div class="formbold-mb-3">
 						<label for="foto_kartu_atm" class="formbold-form-label">
 							Foto Kartu ATM
 						</label>
-						<input type="file" class="form-control" id="customFile" name="foto" value="<?= $d['foto_kartu_atm']; ?>"/>
+						<input type="file" class="form-control" id="customFile" name="foto_kartu_atm" value="gambar/<?= $d['foto_kartu_atm']; ?>" />
 					</div>
 
 					<div class="formbold-mb-3">
 						<label for="foto_kk" class="formbold-form-label">
 							Foto KK
 						</label>
-						<input type="file" class="form-control" id="customFile" name="foto" value="<?= $d['foto_kk']; ?>"/>
+						<input type="file" class="form-control" id="customFile" name="foto_kk" value="<?= $d['foto_kk']; ?>" />
 					</div>
 
 					<div class="formbold-mb-3">
 						<label for="foto_buku_tabungan" class="formbold-form-label">
 							Foto Buku Tabungan
 						</label>
-						<input type="file" class="form-control" id="customFile" name="foto" value="<?= $d['foto_buku_tabungan']; ?>"/>
+						<input type="file" class="form-control" id="customFile" name="foto_buku_tabungan" value="<?= $d['foto_buku_tabungan']; ?>" />
 					</div>
-					<input type="hidden" name="id_ib" value="<?php echo $d['id_ib'] ?>">
+
 
 					<div class="formbold-checkbox-wrapper">
 					</div>

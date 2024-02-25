@@ -36,7 +36,13 @@
                         <label for="status" class="formbold-form-label">
                             Status
                         </label>
-                        <input type="text" name="status" id="status" class="formbold-form-input" />
+                        <select class="formbold-form-input" aria-label="Default select example">
+                            <option value="" disabled selected>Status</option>
+                            <option value="active">Active</option>
+                            <option value="blockir">Blockir</option>
+                            <option value="stock">Stock</option>
+                            <option value="closed">Closed</option>
+                        </select>
                     </div>
                     <div>
                         <label for="batch" class="formbold-form-label"> Batch </label>
@@ -168,6 +174,26 @@
                         <input type="date" name="tanggal_akhir" id="tanggal_akhir" class="formbold-form-input" />
                     </div>
                 </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="bisnis" class="formbold-form-label"> Bisnis </label>
+                        <input type="text" name="bisnis" id="bisnis" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="coorporate_id" class="formbold-form-label"> Coorporate_id </label>
+                        <input type="text" name="coorporate_id" id="coorporate_id" class="formbold-form-input" />
+                    </div>
+                </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="coorporate" class="formbold-form-label"> Coorporate </label>
+                        <input type="text" name="coorporate" id="coorporate" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="id" class="formbold-form-label"> ID </label>
+                        <input type="text" name="id" id="id" class="formbold-form-input" />
+                    </div>
+                </div>
 
                 <div class="formbold-mb-3">
                     <label for="masa_berlaku_atm" class="formbold-form-label">
@@ -194,14 +220,14 @@
                     <label for="foto_kk" class="formbold-form-label">
                         Foto KK
                     </label>
-                    <input type="file" class="form-control" id="customFile" name="foto_kk"/>
+                    <input type="file" class="form-control" id="customFile" name="foto_kk" />
                 </div>
 
                 <div class="formbold-mb-3">
                     <label for="foto_buku_tabungan" class="formbold-form-label">
                         Foto Buku Tabungan
                     </label>
-                    <input type="file" class="form-control" id="customFile" name="foto_buku_tabungan"/>
+                    <input type="file" class="form-control" id="customFile" name="foto_buku_tabungan" />
                 </div>
 
                 <div class="formbold-checkbox-wrapper">
@@ -371,6 +397,7 @@
         .formbold-btn:hover {
             box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
         }
+
     </style>
 </body>
 
