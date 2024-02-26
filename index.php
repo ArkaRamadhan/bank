@@ -209,8 +209,9 @@
 
                                     <?php
                                     include 'koneksi.php';
+                                    $username = $_SESSION['username'];
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "select * from bank");
+                                    $data = mysqli_query($koneksi, "select * from bank where username = '$username'");
                                     while ($d = mysqli_fetch_array($data)) {
                                     ?>
 

@@ -21,6 +21,17 @@
 
                 <div class="formbold-input-flex">
                     <div>
+                        <?php
+                            include 'koneksi.php';
+                            $data = mysqli_query($koneksi, "select * from user");
+                            while ($d = mysqli_fetch_array($data)) {
+                            $_SESSION['username'] = $d['username'];
+                        ?>
+                            <input type="hidden" name="username" value="<?= $_SESSION['username'];?>">
+
+                        <?php
+                        }
+                        ?>
                         <label for="nama" class="formbold-form-label">
                             Nama
                         </label>
@@ -397,7 +408,6 @@
         .formbold-btn:hover {
             box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
         }
-
     </style>
 </body>
 
