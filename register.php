@@ -192,7 +192,7 @@ function registrasi($data)
         echo "<script>
                 alert('Berhasil menambahkan user baru');
               </script>";
-        header("Location: index.php"); // mengarahkan pengguna ke halaman index.php setelah pendaftaran berhasil
+        header("Location: index_admin.php"); // mengarahkan pengguna ke halaman index.php setelah pendaftaran berhasil
         exit(); // pastikan tidak ada output lain setelah header
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi); // menampilkan pesan kesalahan jika query gagal

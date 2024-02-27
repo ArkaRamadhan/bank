@@ -47,7 +47,7 @@
                         <label for="status" class="formbold-form-label">
                             Status
                         </label>
-                        <select class="formbold-form-input" aria-label="Default select example">
+                        <select class="formbold-form-input" aria-label="Default select example" name="status">
                             <option value="" disabled selected>Status</option>
                             <option value="active">Active</option>
                             <option value="blockir">Blockir</option>
