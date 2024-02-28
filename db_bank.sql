@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 07:10 AM
+-- Generation Time: Feb 28, 2024 at 07:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -85,6 +85,64 @@ INSERT INTO `bank` (`id_ib`, `username`, `nama`, `bank`, `cabang`, `no_rekening`
 (30, 'jamal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', 'closed', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', ''),
 (32, 'kocak', 'Arkha', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', 'active', '', '', '', '', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bisnis`
+--
+
+CREATE TABLE `bisnis` (
+  `bisnis` varchar(255) NOT NULL,
+  `coorporate_id` varchar(255) NOT NULL,
+  `coorporate` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mybca`
+--
+
+CREATE TABLE `mybca` (
+  `id_mybca` int(11) NOT NULL,
+  `user_mybca` varchar(255) NOT NULL,
+  `password_mybca` varchar(255) NOT NULL,
+  `pin_transaksi` int(10) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `tgl_mulai` date NOT NULL,
+  `tgl_akhir` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `level` enum('user','admin') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
+(1, 'user', '123', 'user'),
+(2, 'admin', '123', 'admin'),
+(3, 'pasa', '123', 'admin'),
+(4, 'rio', '123', 'user'),
+(5, 'rippa', '123', 'user'),
+(6, 'tolil', 'tolil', 'user'),
+(7, 'ujang', 'ujang', 'user'),
+(8, 'pendi', '123', 'user'),
+(9, 'jamal', '123', 'user'),
+(10, 'kocak', 'kocak', 'user');
+
 --
 -- Indexes for dumped tables
 --
@@ -96,6 +154,24 @@ ALTER TABLE `bank`
   ADD PRIMARY KEY (`id_ib`);
 
 --
+-- Indexes for table `bisnis`
+--
+ALTER TABLE `bisnis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mybca`
+--
+ALTER TABLE `mybca`
+  ADD PRIMARY KEY (`id_mybca`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -104,6 +180,24 @@ ALTER TABLE `bank`
 --
 ALTER TABLE `bank`
   MODIFY `id_ib` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `bisnis`
+--
+ALTER TABLE `bisnis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `mybca`
+--
+ALTER TABLE `mybca`
+  MODIFY `id_mybca` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
