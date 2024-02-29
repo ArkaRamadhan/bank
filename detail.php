@@ -21,7 +21,7 @@
         .container {
             margin: 100px 0px 50px 2rem;
             width: 100rem;
-            height: 80rem;
+            height: 78rem;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ccc;
@@ -313,11 +313,6 @@
         </div>
 
         <div class="coorporate">
-            <div class="wrapper">
-                <hr>
-                <h5>Bisnis <span class="cabang-wrapper"><?= $d['bisnis']; ?></span></h5>
-                <hr>
-            </div>
             <div class="wrapper">
                 <h5>Coorporate_id <span class="cabang-wrapper"><?= $d['coorporate_id']; ?></span></h5>
                 <hr>

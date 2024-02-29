@@ -36,7 +36,7 @@ if($cek > 0){
     }
 } else {
     // Jika username tidak ditemukan, alihkan kembali ke halaman login
-   echo 'data tidak ditemukan';
+   header('location:login.php?UserNotFound');
 }
 
 }

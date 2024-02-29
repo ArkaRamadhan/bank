@@ -187,6 +187,27 @@
 						</div>
 					</div>
 
+					<div class="formbold-input-flex">
+						<div class="formbold-form-title">
+							<h2 class="">Bisnis</h2>
+						</div>
+
+					</div>
+					<div class="formbold-input-flex">
+						<div>
+							<label for="coorporate_id" class="formbold-form-label"> Coorporate_id </label>
+							<input type="text" name="coorporate_id" id="coorporate_id" class="formbold-form-input" value="<?= $d['coorporate_id']; ?>"/>
+						</div>
+						<div>
+							<label for="coorporate" class="formbold-form-label"> Coorporate </label>
+							<input type="text" name="coorporate" id="coorporate" class="formbold-form-input" value="<?= $d['coorporate']; ?>"/>
+						</div>
+						<div>
+							<label for="id" class="formbold-form-label"> ID </label>
+							<input type="text" name="id" id="id" class="formbold-form-input" value="<?= $d['id']; ?>"/>
+						</div>
+					</div>
+
 					<div class="formbold-mb-3">
 						<label for="masa_berlaku_atm" class="formbold-form-label">
 							Masa Berlaku ATM

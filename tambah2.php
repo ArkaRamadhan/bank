@@ -23,15 +23,13 @@
                     <div>
                         <?php
                             include 'koneksi.php';
+                            session_start();
                             $data = mysqli_query($koneksi, "select * from user");
-                            while ($d = mysqli_fetch_array($data)) {
-                            $_SESSION['username'] = $d['username'];
+                            $_SESSION['username'];
                         ?>
                             <input type="hidden" name="username" value="<?= $_SESSION['username'];?>">
 
-                        <?php
-                        }
-                        ?>
+                        
                         <label for="nama" class="formbold-form-label">
                             Nama
                         </label>
@@ -186,16 +184,16 @@
                     </div>
                 </div>
                 <div class="formbold-input-flex">
-                    <div>
-                        <label for="bisnis" class="formbold-form-label"> Bisnis </label>
-                        <input type="text" name="bisnis" id="bisnis" class="formbold-form-input" />
-                    </div>
-                    <div>
+                <div class="formbold-form-title">
+                    <h2 class="">Bisnis</h2>
+                </div>
+
+                </div>
+                <div class="formbold-input-flex">
+                <div>
                         <label for="coorporate_id" class="formbold-form-label"> Coorporate_id </label>
                         <input type="text" name="coorporate_id" id="coorporate_id" class="formbold-form-input" />
                     </div>
-                </div>
-                <div class="formbold-input-flex">
                     <div>
                         <label for="coorporate" class="formbold-form-label"> Coorporate </label>
                         <input type="text" name="coorporate" id="coorporate" class="formbold-form-input" />
