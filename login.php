@@ -148,11 +148,18 @@ session_start();
 // Menghubungkan PHP dengan koneksi database
 include 'koneksi.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_POST['login'])) {
 
     // Menangkap data yang dikirim dari form login
-    $username = mysqli_real_escape_string($koneksi, $_POST['username']);
-    $password = mysqli_real_escape_string($koneksi, $_POST['password']);
+    // $username = mysqli_real_escape_string($koneksi, $_POST['username']);
+    // $password = mysqli_real_escape_string($koneksi, $_POST['password']);
+    $username = trim($_POST['username']);
+    $username = htmlspecialchars($_POST['username']);
+    $password = trim($_POST['password']);
+    $password = htmlspecialchars($_POST['password']);
+
+
 
     // Menyeleksi data user dengan username yang sesuai
     $login = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username'");
@@ -179,6 +186,6 @@ if (isset($_POST['login'])) {
         // Jika username tidak ditemukan, alihkan kembali ke halaman login
         header('location:login.php?pesan=gagal');
     }
-}
+}}
 ?>
 

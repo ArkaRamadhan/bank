@@ -27,12 +27,12 @@ if($cek > 0){
         $_SESSION['username'] = $username;
         $_SESSION['level'] = 'admin';
         $_SESSION['status'] = 'login';
-        header('location:index_admin.php');
+        header('location:admin/card_admin.php');
     } else {
         // Jika kata sandi tidak cocok, alihkan kembali ke halaman login
         $_SESSION['username'] = $username;
         $_SESSION['status'] = 'login';
-        header('location:index.php');
+        header('location:card.php');
     }
 } else {
     // Jika username tidak ditemukan, alihkan kembali ke halaman login

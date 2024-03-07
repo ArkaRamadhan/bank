@@ -200,11 +200,11 @@ $id_ib = $d['id_ib'];
     if (empty($filename)) {
         // Jika tidak ada file yang diunggah, tidak perlu menyertakan kolom foto
         mysqli_query($koneksi, "update bank set nama='$nama', bank='$bank', cabang='$cabang', no_rekening='$no_rek', nama_ibu='$nama_ibu', no_hp='$no_hp', email='$email', password='$password', user_ib='$user_ib', kode_akses='$kode_akses', password_transaksi='$password_transaksi', pin_mb='$pin_mb', pin_atm='$pin_atm', serial_key_number='$serial_key_number', pin_skn='$pin_skn', jenis_atm='$jenis_atm', no_kartu_atm='$no_kartu_atm', cvv='$cvv', masa_berlaku_atm='$masa_berlaku_atm',valid_simcard='$valid_simcard', status='$status', supplier='$supplier', user_my_bca='$user_my_bca', password_my_bca='$password_my_bca', pin_transaksi='$pin_transaksi', keterangan='$keterangan', tanggal_mulai='$tanggal_mulai', tanggal_akhir='$tanggal_akhir'  where id_ib='$id'");
-        header("location:detail.php?id_ib=$id_ib");
+        header("location:detail_admin.php?id_ib=$id_ib");
     } else {
         // Jika ada file yang diunggah, sertakan kolom foto
         mysqli_query($koneksi, "update bank set nama='$nama', bank='$bank', cabang='$cabang', no_rekening='$no_rek', nama_ibu='$nama_ibu', no_hp='$no_hp', email='$email', password='$password', user_ib='$user_ib', kode_akses='$kode_akses', password_transaksi='$password_transaksi', pin_mb='$pin_mb', pin_atm='$pin_atm', serial_key_number='$serial_key_number', pin_skn='$pin_skn', jenis_atm='$jenis_atm', no_kartu_atm='$no_kartu_atm', cvv='$cvv', masa_berlaku_atm='$masa_berlaku_atm',valid_simcard='$valid_simcard', status='$status', supplier='$supplier', user_my_bca='$user_my_bca', password_my_bca='$password_my_bca', pin_transaksi='$pin_transaksi', keterangan='$keterangan', tanggal_mulai='$tanggal_mulai', tanggal_akhir='$tanggal_akhir', foto_ktp='$foto_ktp', foto_kartu_atm='$foto_kartu_atm', foto_kk='$foto_kk', foto_buku_tabungan='$foto_buku_tabungan' where id_ib='$id'");
-        header("location:detail.php?id_ib=$id_ib");
+        header("location:detail_admin.php?id_ib=$id_ib");
     }
 }
 

@@ -19,22 +19,13 @@
         <!-- Learn More: https://formbold.com -->
         <div class="formbold-form-wrapper">
 
-            <form action="tambah_aksi.php" method="POST" enctype="multipart/form-data">
+            <form action="aksi_admin.php" method="POST" enctype="multipart/form-data">
                 <div class="formbold-form-title">
                     <h2 class="">DATA REKENING</h2>
                 </div>
 
                 <div class="formbold-input-flex">
                     <div>
-                        <?php
-                            include 'koneksi.php';
-                            session_start();
-                            $data = mysqli_query($koneksi, "select * from user");
-                            $_SESSION['username'];
-                        ?>
-                            <input type="hidden" name="username" value="<?= $_SESSION['username'];?>">
-
-                        
                         <label for="nama" class="formbold-form-label">
                             Nama
                         </label>
@@ -247,7 +238,7 @@
                 <div class="formbold-checkbox-wrapper">
                 </div>
 
-                <a href="index.php" class="formbold-btn" style="background-color:red; height:2rem;">Kembali</a>
+                <a href="index_admin.php" class="formbold-btn" style="background-color:red">Kembali</a>
                 <button class="formbold-btn" type="submit">Submit</button>
             </form>
         </div>

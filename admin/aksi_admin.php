@@ -33,7 +33,6 @@ $tanggal_mulai = $_POST['tanggal_mulai'];
 $tanggal_akhir = $_POST['tanggal_akhir'];
 $coorporate_id = $_POST['coorporate_id'];
 $coorporate = $_POST['coorporate'];
-$username = $_POST['username'];
 $id = $_POST['id'];
 
 // menangkap foto yang diunggah
@@ -71,11 +70,11 @@ if ($_FILES['foto']['error'] === UPLOAD_ERR_OK) {
 }
 
 // memasukkan data ke database
-$query = "INSERT INTO bank VALUES ('', '$username', '$nama', '$bank', '$cabang', '$no_rek', '$nama_ibu', '$no_hp', '$email', '$password', '$user_ib', '$pin_mb', '$kode_akses', '$password_transaksi', '$pin_mb', '$pin_atm', '$serial_key_number', '$pin_skn', '$jenis_atm', '$no_kartu_atm', '$cvv', '$masa_berlaku_atm', '$valid_simcard', '$status', '$supplier', '$user_my_bca', '$password_my_bca', '$pin_transaksi', '$keterangan', '$tanggal_mulai', '$tanggal_akhir' , '$coorporate_id', '$coorporate', '$id', '$foto_ktp', '$foto_kartu_atm', '$foto_kk', '$foto_buku_tabungan')";
+$query = "INSERT INTO bank VALUES (NULL, '', '$nama', '$bank', '$cabang', '$no_rek', '$nama_ibu', '$no_hp', '$email', '$password', '$user_ib', '$pin_mb', '$kode_akses', '$password_transaksi', '$pin_mb', '$pin_atm', '$serial_key_number', '$pin_skn', '$jenis_atm', '$no_kartu_atm', '$cvv', '$masa_berlaku_atm', '$valid_simcard', '$status', '$supplier', '$user_my_bca', '$password_my_bca', '$pin_transaksi', '$keterangan', '$tanggal_mulai', '$tanggal_akhir' , '$coorporate_id', '$coorporate', '$id', '$foto_ktp', '$foto_kartu_atm', '$foto_kk', '$foto_buku_tabungan')";
         
 // jalankan query
 mysqli_query($koneksi, $query);
 
-header("location:index.php?alert=berhasil");
+header("location:index_admin.php?alert=berhasil");
 exit; // berhenti dari skrip setelah redirect
 ?>

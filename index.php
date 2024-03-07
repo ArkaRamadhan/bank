@@ -49,29 +49,23 @@
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
+            <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.php">
+                        <a class="nav-link" href="card.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                            </nav>
-                        </div>
+                        <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Pages
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Authentication
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
+
+                                <a class="nav-link" href="index_admin.php">Data Rekening</a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="login.html">Login</a>
@@ -79,12 +73,7 @@
                                         <a class="nav-link" href="password.html">Forgot Password</a>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Error
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                </div>
                             </nav>
                         </div>
                     </div>
@@ -153,12 +142,8 @@
                                     <a href="tambah2.php" class="btn btn-outline-primary" style="text-decoration:none; margin-right: 0.5rem;">+
                                         TAMBAH REKENING</a>
 
-                                    <a href="cetak.php" class="btn btn-outline-danger" target="_blank" style="text-decoration:none; margin-right: 0.5rem; ">CETAK</a>
 
                                     <a target="_blank" href="export_excel.php" class="btn btn-outline-success " style="text-decoration:none; margin-right: 0.5rem;">EXPORT KE
-                                        EXCEL</a>
-
-                                    <a href="import_excel.php" class="btn btn-outline-secondary" style="text-decoration:none; margin-right: 0.5rem;">IMPORT DATA DARI
                                         EXCEL</a>
 
                                 </div>
@@ -166,7 +151,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Status</th>
-                                        <th>Batch</th>
+                                        <th>Supplier</th>
                                         <th>Nama</th>
                                         <th>No.Rek</th>
                                         <th>No.HP</th>
@@ -183,7 +168,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Status</th>
-                                        <th>Batch</th>
+                                        <th>Supplier</th>
                                         <th>Nama</th>
                                         <th>No.Rek</th>
                                         <th>No.HP</th>
@@ -213,7 +198,7 @@
                                                 <?php echo $d['status']; ?>
                                             </td>
                                             <td>
-                                                <?php echo $d['batch']; ?>
+                                                <?php echo $d['supplier']; ?>
                                             </td>
                                             <td>
                                                 <?php echo $d['nama']; ?>

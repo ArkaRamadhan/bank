@@ -135,7 +135,7 @@
 <body>
     <h1>Detail Rekening</h1>
     <div class="btn-wrapper">
-        <a href="index.php" class="btn btn-primary">Kembali</a>
+        <a href="index_admin.php" class="btn btn-primary">Kembali</a>
         <button class="btn btn-success">Print</button>
     </div>
     <div class="container">
@@ -232,7 +232,7 @@
                     <hr>
                 </div>
 
-                <a href="edit.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary update" style="margin-top: 5rem; width:50%;">UPDATE</a>
+                <a href="edit_admin.php?id_ib=<?php echo $d['id_ib']; ?>" class="btn btn-xl btn-primary update" style="margin-top: 5rem; width:50%;">UPDATE</a>
 
                 <!-- Button to Open the Modal -->
                 <button type="button" class="btn btn-danger" data-toggle="modal" onclick="openModal()" style="margin-top: 5rem; width:49%;">

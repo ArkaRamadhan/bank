@@ -25,7 +25,7 @@
         <tr>
             <th>No</th>
             <th>Status</th>
-            <th>Batch</th>
+            <th>Supplier</th>
             <th>Cabang</th>
             <th>Nama</th>
             <th>Nama ibu</th>
@@ -66,7 +66,7 @@
             <tr>
                 <td><?php echo $no++; ?></td>
                 <td><?php echo $data['status']; ?></td>
-                <td><?php echo $data['batch']; ?></td>
+                <td><?php echo $data['Supplier']; ?></td>
                 <td><?php echo $data['cabang']; ?></td>
                 <td><?php echo $data['nama']; ?></td>
                 <td><?php echo $data['nama_ibu']; ?></td>

@@ -30,7 +30,7 @@
 			$nomor = 1;
 			while ($d = mysqli_fetch_array($data)) {
 			?>
-				<form method="POST" action="update.php?id_ib=<?php echo $d['id_ib']; ?>" enctype="multipart/form-data">
+				<form method="POST" action="update_admin.php?id_ib=<?php echo $d['id_ib']; ?>" enctype="multipart/form-data">
 					<div class="formbold-form-title">
 						<h2 class="">DATA REKENING</h2>
 					</div>
@@ -252,7 +252,7 @@
 					<div class="formbold-checkbox-wrapper">
 					</div>
 
-					<a href="detail.php?id_ib=<?php echo $d['id_ib']; ?>" class="formbold-btn" style="background-color:red">Kembali</a>
+                    <a href="detail_admin.php?id_ib=<?php echo $d['id_ib']; ?>" class="formbold-btn" style="background-color:red">Kembali</a>
 					<button class="formbold-btn" type="submit">Submit</button>
 				</form>
 			<?php
